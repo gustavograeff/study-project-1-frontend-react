@@ -1,1 +1,1 @@
-# study-project-1-frontend-react
+# ReactJs - Improving Concepts
