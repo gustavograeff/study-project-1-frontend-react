@@ -18,10 +18,10 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
     "format": "prettier --write 'src/**/*.{ts,tsx,scss,css,json}'",
     "isready": "npm run format && npm run lint && npm run build"
@@ -61,6 +61,7 @@
     "eslint-plugin-react-hooks": "4.1.0",
     "prettier": "^2.1.0",
     "prettier-eslint": "^11.0.0",
-    "prettier-eslint-cli": "^5.0.0"
+    "prettier-eslint-cli": "^5.0.0",
+    "react-app-rewired": "^2.1.6"
   }
 }
