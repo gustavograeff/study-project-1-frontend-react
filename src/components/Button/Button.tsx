@@ -3,7 +3,6 @@ import { StyledButton } from './StyledButton';
 
 interface IButtonProps {
   clicked: MouseEventHandler;
-  label: string;
   disabled?: boolean;
   backgroundColor?: string;
 }
@@ -16,7 +15,7 @@ const button: React.FC<IButtonProps> = (props) => {
       backgroundColor={props.backgroundColor}
       type="button"
     >
-      {props.label}
+      {props.children}
     </StyledButton>
   );
 };
