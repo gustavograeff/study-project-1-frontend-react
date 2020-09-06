@@ -16,4 +16,8 @@ export const StyledButton = styled.button<ButtonStyleProps>`
   &:disabled {
     background-color: rgba(0, 0, 0, 0.2);
   }
+
+  :hover {
+    cursor: pointer;
+  }
 `;
