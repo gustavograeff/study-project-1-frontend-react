@@ -23,12 +23,7 @@ export const getAllUsers = async () => {
   }
 };
 
-export const login = async (body: IUserLogin) => {
+export const loginService = (body: IUserLogin) => {
   console.log('login body => ', body);
-  try {
-    const loginReturn = await axios.post(`${loginUrl}`, body);
-    console.log(loginReturn.data);
-  } catch (err) {
-    console.log('err => ', err);
-  }
+  return axios.post(`${loginUrl}`, body);
 };
