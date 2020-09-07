@@ -4,6 +4,8 @@
     "paths": {
       "@services/*": ["./src/shared/services/*"],
       "@interfaces/*": ["./src/shared/interfaces/*"],
+      "@sharedPages/*": ["./src/shared/pages/*"],
+      "@components/*": ["./src/components/*"]
     }
   }
 }

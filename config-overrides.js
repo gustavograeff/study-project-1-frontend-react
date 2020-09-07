@@ -5,7 +5,10 @@ module.exports = function override(config) {
     ...config.resolve,
     alias: {
       ...config.alias,
-      '@services': path.resolve(__dirname, 'src/shared/services')
+      '@services': path.resolve(__dirname, 'src/shared/services'),
+      '@interfaces': path.resolve(__dirname, 'src/shared/interfaces'),
+      '@sharedPages': path.resolve(__dirname, 'src/shared/pages'),
+      '@components': path.resolve(__dirname, 'src/shared/components')
     },
   };
 
