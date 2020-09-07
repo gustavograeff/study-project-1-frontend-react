@@ -24,6 +24,5 @@ export const getAllUsers = async () => {
 };
 
 export const loginService = (body: IUserLogin) => {
-  console.log('login body => ', body);
   return axios.post(`${loginUrl}`, body);
 };

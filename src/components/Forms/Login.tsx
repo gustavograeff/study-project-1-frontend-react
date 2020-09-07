@@ -1,10 +1,11 @@
-import React, { FormEvent, useState, useEffect } from 'react';
 import { IUserLogin } from '@interfaces/User';
 import { loginService } from '@services/User';
 import PageNotFound from '@sharedPages/NotFound';
+import React, { FormEvent, useEffect, useState } from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 import { StyledInput, StyledLabel } from './InputForm';
 
-const Login: React.FC = () => {
+const Login: React.FC<RouteComponentProps> = (props) => {
   const [userLogin, setUSerLoginData] = useState<IUserLogin>({
     email: '',
     password: ''
@@ -33,6 +34,7 @@ const Login: React.FC = () => {
     e.preventDefault();
     try {
       const loggedUser = await loginService(userLogin);
+      props.history.push({ pathname: '/main-page' });
     } catch (err) {
       setShowHasError({
         error: true
