@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { IUserLogin } from '@interfaces/User';
+import { IUserLogin, IUserContext } from '@interfaces/User';
 import { baseUrl, loginUrl } from './Consts';
 
 interface IUsersList extends AxiosResponse {
@@ -23,6 +23,6 @@ export const getAllUsers = async () => {
   }
 };
 
-export const loginService = (body: IUserLogin) => {
+export const loginService = (body: IUserLogin): Promise<AxiosResponse<IUserContext>> => {
   return axios.post(`${loginUrl}`, body);
 };

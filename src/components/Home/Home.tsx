@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import AuthContext from '@contexts/auth.context';
 
-const home: React.FC = () => {
+const Home: React.FC = () => {
+  const { signed } = useContext(AuthContext);
+
+  console.log(signed);
+
   return (
     <div>
       <h1>Home</h1>
@@ -8,4 +13,4 @@ const home: React.FC = () => {
   );
 };
 
-export default home;
+export default Home;
