@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import AuthContext from '@contexts/authContext';
+import { useAuth } from '@contexts/authContext';
+import React from 'react';
 
 const Main: React.FC = () => {
-  const { signOut } = useContext(AuthContext);
+  const { signOut } = useAuth();
 
   const onClickSignOut = () => {
     signOut();

@@ -1,14 +1,12 @@
+import { useAuth } from '@contexts/authContext';
 import { IUserLogin } from '@interfaces/UserInterface';
-import { loginService } from '@services/UserService';
 import PageNotFound from '@sharedPages/NotFound';
-import React, { FormEvent, useState, useContext } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import AuthContext from '@contexts/authContext';
-import axios from 'axios';
 import { StyledInput, StyledLabel } from './InputForm';
 
 const Login: React.FC<RouteComponentProps> = (props) => {
-  const { signed, signIn } = useContext(AuthContext);
+  const { signed, signIn } = useAuth();
 
   console.log(signed);
 

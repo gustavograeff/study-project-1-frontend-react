@@ -1,7 +1,11 @@
-import React, { createContext, useState, useEffect } from 'react';
+import { IAuthContextData, IUserContext, IUserLogin } from '@interfaces/UserInterface';
 import { loginService } from '@services/UserService';
-import { IUserLogin, IUserContext, IAuthContextData } from '@interfaces/UserInterface';
-import { AxiosResponse } from 'axios';
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+
+interface IAxiosBaseHeaders extends AxiosRequestConfig {
+  Authorization?: string;
+}
 
 const AuthContext = createContext<IAuthContextData>({} as IAuthContextData);
 
@@ -9,13 +13,15 @@ export const AuthProvider: React.FC = ({ children }) => {
   const [user, setUser] = useState<IUserContext | null>(null);
 
   useEffect(() => {
-    console.log('useEffect ok!', user);
     async function loadStorageData() {
       const storagedToken = localStorage.getItem('userToken');
       const storagedUserId = localStorage.getItem('userId');
       const storagedEmail = localStorage.getItem('userEmail');
 
       if (storagedUserId && storagedToken && storagedEmail) {
+        const axiosBaseHeaders: IAxiosBaseHeaders = axios.defaults;
+        axiosBaseHeaders.Authorization = `Bearer ${storagedToken}`;
+
         setUser({ token: storagedToken, email: storagedEmail, userId: storagedUserId });
       }
     }
@@ -28,9 +34,14 @@ export const AuthProvider: React.FC = ({ children }) => {
     const { token, userId, email } = response.data;
 
     setUser(response.data);
+
     localStorage.setItem('userId', userId);
     localStorage.setItem('userToken', token);
     localStorage.setItem('userEmail', email);
+
+    const axiosBaseHeaders: IAxiosBaseHeaders = axios.defaults;
+    axiosBaseHeaders.Authorization = `Bearer ${token}`;
+
     return response;
   };
 
@@ -56,4 +67,8 @@ export const AuthProvider: React.FC = ({ children }) => {
   );
 };
 
-export default AuthContext;
+export function useAuth() {
+  const context = useContext(AuthContext);
+
+  return context;
+}

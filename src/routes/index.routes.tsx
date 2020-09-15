@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import AuthContext from '@contexts/authContext';
-import AuthRoutes from './auth.routes';
+import { useAuth } from '@contexts/authContext';
+import React from 'react';
 import AppRoutes from './app.routes';
+import AuthRoutes from './auth.routes';
 
 const App: React.FC = () => {
-  const { signed } = useContext(AuthContext);
+  const { signed } = useAuth();
   console.log('signed index routes', signed);
 
   return signed ? <AppRoutes /> : <AuthRoutes />;

@@ -10,6 +10,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/home" component={Home} />
       <Route path="/main-page" component={MainPage} />
       <Route path="/not-found" component={NotFound} />
+      <Redirect from="/login" exact to="/main-page" />
       <Redirect from="/" exact to="/home" />
       <Redirect from="/" to="/not-found" />
     </Switch>
