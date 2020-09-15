@@ -1,8 +1,8 @@
 import { AxiosResponse } from 'axios';
 
 export interface IUserLogin {
-  email: string,
-  password: string
+  email: string;
+  password: string;
 }
 
 export interface IUserContext {
@@ -15,4 +15,5 @@ export interface IAuthContextData {
   signed: boolean;
   user: object | null;
   signIn(body: IUserLogin): Promise<AxiosResponse<IUserContext>>;
+  signOut(): IUserContext | null;
 }

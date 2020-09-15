@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { IUserLogin, IUserContext } from '@interfaces/User';
+import { IUserLogin, IUserContext } from '@interfaces/UserInterface';
 import { baseUrl, loginUrl } from './Consts';
 
 interface IUsersList extends AxiosResponse {
@@ -16,7 +16,6 @@ interface IUser {
 export const getAllUsers = async () => {
   try {
     const users: IUsersList = await axios.get(`${baseUrl}/users`);
-    console.log(users.data);
   } catch (err) {
     console.log('err => ', err);
     // throw new Error(err);

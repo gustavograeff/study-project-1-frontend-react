@@ -1,10 +1,8 @@
 import React, { useContext } from 'react';
-import AuthContext from '@contexts/auth.context';
+import AuthContext from '@contexts/authContext';
 
 const Home: React.FC = () => {
   const { signed } = useContext(AuthContext);
-
-  console.log(signed);
 
   return (
     <div>

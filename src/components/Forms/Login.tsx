@@ -1,9 +1,10 @@
-import { IUserLogin } from '@interfaces/User';
-import { loginService } from '@services/User';
+import { IUserLogin } from '@interfaces/UserInterface';
+import { loginService } from '@services/UserService';
 import PageNotFound from '@sharedPages/NotFound';
 import React, { FormEvent, useState, useContext } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import AuthContext from '@contexts/auth.context';
+import AuthContext from '@contexts/authContext';
+import axios from 'axios';
 import { StyledInput, StyledLabel } from './InputForm';
 
 const Login: React.FC<RouteComponentProps> = (props) => {
@@ -37,7 +38,7 @@ const Login: React.FC<RouteComponentProps> = (props) => {
     e.preventDefault();
     try {
       const loggedUser = await signIn(userLogin);
-      // props.history.push({ pathname: '/main-page' });
+      props.history.push({ pathname: '/main-page' });
     } catch (err) {
       setShowHasError({
         error: true,
