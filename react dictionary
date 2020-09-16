@@ -1,0 +1,9 @@
+interface IDictionaryPages {
+  [key: string]: React.FC;
+}
+
+const pages: IDictionaryPages = {
+  '/home': Home,
+  '/users': UserPage,
+};
+
