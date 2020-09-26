@@ -5,8 +5,6 @@ import AuthRoutes from './auth.routes';
 
 const App: React.FC = () => {
   const { signed } = useAuth();
-  console.log('signed index routes', signed);
-
   return signed ? <AppRoutes /> : <AuthRoutes />;
 };
 
