@@ -8,8 +8,6 @@ import { StyledInput, StyledLabel } from './InputForm';
 const Login: React.FC<RouteComponentProps> = (props) => {
   const { signed, signIn } = useAuth();
 
-  console.log(signed);
-
   const [userLogin, setUSerLoginData] = useState<IUserLogin>({
     email: '',
     password: '',
@@ -36,6 +34,9 @@ const Login: React.FC<RouteComponentProps> = (props) => {
     e.preventDefault();
     try {
       const loggedUser = await signIn(userLogin);
+
+      if (props.history.location.pathname) return;
+
       props.history.push({ pathname: '/main-page' });
     } catch (err) {
       setShowHasError({
