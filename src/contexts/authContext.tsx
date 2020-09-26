@@ -19,8 +19,7 @@ export const AuthProvider: React.FC = ({ children }) => {
       const storagedEmail = localStorage.getItem('userEmail');
 
       if (storagedUserId && storagedToken && storagedEmail) {
-        const axiosBaseHeaders: IAxiosBaseHeaders = axios.defaults;
-        axiosBaseHeaders.Authorization = `Bearer ${storagedToken}`;
+        setAuthorizationHeader(storagedToken);
 
         setUser({ token: storagedToken, email: storagedEmail, userId: storagedUserId });
       }
@@ -39,8 +38,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     localStorage.setItem('userToken', token);
     localStorage.setItem('userEmail', email);
 
-    const axiosBaseHeaders: IAxiosBaseHeaders = axios.defaults;
-    axiosBaseHeaders.Authorization = `Bearer ${token}`;
+    setAuthorizationHeader(token);
 
     return response;
   };
@@ -56,6 +54,11 @@ export const AuthProvider: React.FC = ({ children }) => {
     clearLocalStorageAuthData();
 
     return user;
+  };
+
+  const setAuthorizationHeader = (storagedToken: string) => {
+    const axiosBaseHeaders: IAxiosBaseHeaders = axios.defaults;
+    axiosBaseHeaders.headers.Authorization = `Bearer ${storagedToken}`;
   };
 
   return (
