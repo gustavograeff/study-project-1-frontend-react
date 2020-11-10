@@ -24,3 +24,12 @@ export interface IAuthContextData {
   signIn(body: IUserLogin): Promise<AxiosResponse<IUserContext>>;
   signOut(): IUserContext | null;
 }
+
+export interface ILateralMenuContext {
+  changeLateralMenuState(): boolean;
+  isOpen: boolean;
+}
+
+export interface ILateralMenuState {
+  isOpen: boolean;
+}
