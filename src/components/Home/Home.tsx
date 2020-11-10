@@ -6,20 +6,18 @@ import {
 import peopleAndBooks from '@assets/png/people-and-books.png';
 import { useAuth } from '@contexts/authContext';
 import { useLateralMenu } from '@contexts/lateralMenuContext';
-import { UbuntuBold, UbuntuRegular } from '@fonts/Fonts';
+import { UbuntuRegular } from '@fonts/Fonts';
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import LateralMenu from '@shared/layouts/LateralMenu';
 
 const StyledH1 = styled.h1`
-  font-family: 'UbuntuRegular';
   font-weight: ${standardFontWeight};
   font-size: ${smallFontSize};
 `;
 
-const StyledH12 = styled.h1`
-  font-family: 'UbuntuBold';
-  font-weight: ${strongFontWeight};
-  font-size: ${smallFontSize};
+const StyledMainImg = styled.img`
+  width: 100%;
 `;
 
 const Home: React.FC = () => {
@@ -27,24 +25,19 @@ const Home: React.FC = () => {
 
   const { isOpen, changeLateralMenuState } = useLateralMenu();
 
-  useEffect(() => {
-    console.log(isOpen);
-  }, [isOpen]);
-
   function test() {
     changeLateralMenuState();
   }
 
   return (
     <div>
+      <LateralMenu>Content INside Menu</LateralMenu>
       <UbuntuRegular />
       <StyledH1>Books Notes</StyledH1>
-      <UbuntuBold />
-      <StyledH12>This is H2</StyledH12>
       <button type="button" onClick={test}>
         Teste
       </button>
-      <img alt="people-and-book" src={peopleAndBooks} />
+      <StyledMainImg alt="people-and-book" src={peopleAndBooks} />
     </div>
   );
 };
