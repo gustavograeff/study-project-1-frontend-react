@@ -8,7 +8,8 @@
       "@components/*": ["./src/components/*"],
       "@contexts/*": ["./src/contexts/*"],
       "@assets/*": ["./src/assets/*"],
-      "@fonts/*": ["./src/fonts/*"]
+      "@fonts/*": ["./src/fonts/*"],
+      "@shared/*": ["./src/shared/*"]
     }
   }
 }

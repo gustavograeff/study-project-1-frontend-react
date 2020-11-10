@@ -11,7 +11,8 @@ module.exports = function override(config) {
       '@components': path.resolve(__dirname, 'src/components'),
       '@contexts': path.resolve(__dirname, 'src/contexts'),
       '@assets': path.resolve(__dirname, 'src/assets'),
-      '@fonts': path.resolve(__dirname, 'src/fonts')
+      '@fonts': path.resolve(__dirname, 'src/fonts'),
+      '@shared': path.resolve(__dirname, 'src/shared')
     }
   };
 
