@@ -6,7 +6,9 @@
       "@interfaces/*": ["./src/shared/interfaces/*"],
       "@sharedPages/*": ["./src/shared/pages/*"],
       "@components/*": ["./src/components/*"],
-      "@contexts/*": ["./src/contexts/*"]
+      "@contexts/*": ["./src/contexts/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@fonts/*": ["./src/fonts/*"]
     }
   }
 }

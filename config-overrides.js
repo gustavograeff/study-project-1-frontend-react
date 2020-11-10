@@ -9,8 +9,10 @@ module.exports = function override(config) {
       '@interfaces': path.resolve(__dirname, 'src/shared/interfaces'),
       '@sharedPages': path.resolve(__dirname, 'src/shared/pages'),
       '@components': path.resolve(__dirname, 'src/components'),
-      '@contexts': path.resolve(__dirname, 'src/contexts')
-    },
+      '@contexts': path.resolve(__dirname, 'src/contexts'),
+      '@assets': path.resolve(__dirname, 'src/assets'),
+      '@fonts': path.resolve(__dirname, 'src/fonts')
+    }
   };
 
   return config;
