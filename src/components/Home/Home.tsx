@@ -10,6 +10,7 @@ import { UbuntuRegular } from '@fonts/Fonts';
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import LateralMenu from '@shared/layouts/LateralMenu';
+import HamburgerMenuIcon from '@components/HamburgerMenuIcon/HambguerMenuIcon';
 
 const StyledH1 = styled.h1`
   font-weight: ${standardFontWeight};
@@ -18,6 +19,7 @@ const StyledH1 = styled.h1`
 
 const StyledMainImg = styled.img`
   width: 100%;
+  max-width: 500px;
 `;
 
 const Home: React.FC = () => {
@@ -31,7 +33,8 @@ const Home: React.FC = () => {
 
   return (
     <div>
-      <LateralMenu>Content INside Menu</LateralMenu>
+      <LateralMenu>Content Inside Menu</LateralMenu>
+      <HamburgerMenuIcon />
       <UbuntuRegular />
       <StyledH1>Books Notes</StyledH1>
       <button type="button" onClick={test}>
